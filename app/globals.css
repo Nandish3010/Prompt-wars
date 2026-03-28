@@ -1,0 +1,164 @@
+/* ── Reset ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Layout ──────────────────────────────────────── */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  color: #1a1a1a;
+}
+
+/* ── Skip link (WCAG — must appear on focus) ─────── */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  background: #005FCC;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus { position: static; top: auto; }
+
+/* ── Focus (NEVER remove without replacement) ────── */
+*:focus-visible {
+  outline: 3px solid #005FCC;
+  outline-offset: 2px;
+}
+
+/* ── Site header ─────────────────────────────────── */
+.site-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #dee2e6;
+}
+.site-header h1 { font-size: 1.75rem; color: #CC0000; }
+.tagline { color: #6c757d; margin-top: 0.25rem; }
+
+/* ── Section headings ────────────────────────────── */
+main h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #343a40; }
+
+/* ── Severity badges — WCAG AA compliant ─────────── */
+/* All pass 4.5:1 contrast ratio with white text     */
+.severity-badge      { padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 700; font-size: 0.875rem; color: #fff; }
+.severity-critical   { background: #CC0000; }   /* 5.9:1 ✓ */
+.severity-high       { background: #92400E; }   /* 7.0:1 ✓ */
+.severity-medium     { background: #78350F; }   /* 8.0:1 ✓ */
+.severity-low        { background: #166534; }   /* 6.1:1 ✓ */
+
+/* NEVER use orange #F97316 or yellow #EAB308 with white — both FAIL WCAG AA */
+
+/* ── Dispatch card ───────────────────────────────── */
+.dispatch-card {
+  background: #fff;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-family: 'Courier New', monospace;
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.card-header h2 { font-size: 1rem; letter-spacing: 0.1em; color: #495057; }
+
+.dispatch-fields { display: grid; gap: 0.75rem; }
+.field-row { display: grid; grid-template-columns: 160px 1fr; gap: 0.5rem; }
+dt { font-weight: 600; color: #495057; }
+
+/* ── Resource list ───────────────────────────────── */
+.resource-list { margin: 0; padding-left: 1.25rem; }
+.resource-list li { margin-bottom: 0.25rem; }
+
+/* ── Summary section ─────────────────────────────── */
+.summary-section { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6; }
+.summary-section h3 { font-size: 0.875rem; font-weight: 600; color: #495057; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+.summary-section p { line-height: 1.6; }
+
+/* ── Location map ────────────────────────────────── */
+.location-map { margin: 1rem 0; border-radius: 6px; overflow: hidden; }
+.location-map iframe { display: block; border: 0; }
+.map-caption { padding: 0.25rem 0; color: #6c757d; font-size: 0.8rem; }
+.map-caption a { color: #005FCC; }
+
+/* ── Form ────────────────────────────────────────── */
+.form-wrapper { margin-top: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1rem; }
+label { font-weight: 600; font-size: 0.9rem; }
+textarea, input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+textarea { resize: vertical; min-height: 100px; }
+.hint { font-size: 0.8rem; color: #6c757d; }
+
+button[type="submit"] {
+  background: #CC0000;
+  color: #fff;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px;    /* WCAG touch target */
+  min-width: 44px;
+}
+button[type="submit"]:hover:not(:disabled) { background: #a30000; }
+button[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Errors ──────────────────────────────────────── */
+.error-message {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  color: #856404;
+}
+
+/* ── Confidence badge ────────────────────────────── */
+.confidence-badge { margin-left: 0.5rem; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.75rem; font-weight: 600; }
+.confidence-low   { background: #fff3cd; color: #856404; }
+
+/* ── Footer ──────────────────────────────────────── */
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+footer a { color: #005FCC; }
+
+/* ── Accessibility ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+@media (prefers-color-scheme: dark) {
+  body            { background: #1a1a1a; color: #f0f0f0; }
+  .dispatch-card  { background: #2a2a2a; border-color: #444; }
+  .site-header    { border-bottom-color: #444; }
+  .summary-section { border-top-color: #444; }
+  .error-message  { background: #3a2e00; border-color: #856404; color: #ffc107; }
+  textarea, input[type="file"] { background: #2a2a2a; border-color: #555; color: #f0f0f0; }
+  dt { color: #adb5bd; }
+  .card-header h2 { color: #adb5bd; }
+  footer { border-top-color: #444; }
+}
+@media (prefers-contrast: high) {
+  .severity-badge { border: 2px solid #000; }
+  button[type="submit"] { border: 2px solid #fff; }
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .field-row { grid-template-columns: 1fr; }
+  .card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  body { padding: 1rem; }
+}

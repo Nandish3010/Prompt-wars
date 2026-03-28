@@ -2,3 +2,29 @@
 /CLAUDE.md
 /IMG_2916.HEIC
 /[PUB]How to Make a Submission_.pdf
+
+# Environment variables — never commit secrets
+.env
+.env.*
+!.env.example
+
+# Service account keys
+*.json
+!package.json
+!package-lock.json
+!tsconfig*.json
+
+# Dependencies
+node_modules
+
+# Next.js build output
+.next/
+out/
+
+
+# Editor
+.vscode/
+.idea/
+
+ideas.md
+.gstack/
