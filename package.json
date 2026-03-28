@@ -3,30 +3,34 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev":           "next dev",
-    "build":         "next build",
-    "start":         "next start",
-    "test":          "vitest run",
-    "test:watch":    "vitest",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint":          "next lint",
-    "deploy":        "gcloud run deploy crisisconnect --source . --region asia-south1"
+    "lint": "next lint",
+    "deploy": "gcloud run deploy crisisconnect --source . --region asia-south1 --set-secrets=\"GEMINI_API_KEY=GEMINI_API_KEY:latest,GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT:latest,GOOGLE_MAPS_API_KEY=GOOGLE_MAPS_API_KEY:latest,GOOGLE_SPEECH_API_KEY=GOOGLE_SPEECH_API_KEY:latest,GOOGLE_WEATHER_API_KEY=GOOGLE_WEATHER_API_KEY:latest,NEXT_PUBLIC_FIREBASE_API_KEY=NEXT_PUBLIC_FIREBASE_API_KEY:latest,NEXT_PUBLIC_FIREBASE_APP_ID=NEXT_PUBLIC_FIREBASE_APP_ID:latest,NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:latest,NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID:latest,NEXT_PUBLIC_FIREBASE_PROJECT_ID=NEXT_PUBLIC_FIREBASE_PROJECT_ID:latest\""
   },
   "dependencies": {
-    "next":                   "^14.2.0",
-    "react":                  "^18.3.0",
-    "react-dom":              "^18.3.0",
-    "@google/generative-ai":  "^0.21.0"
+    "@google/generative-ai": "^0.21.0",
+    "firebase": "^12.11.0",
+    "firebase-admin": "^13.7.0",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
   },
   "devDependencies": {
-    "typescript":             "^5.4.0",
-    "@types/node":            "^20.0.0",
-    "@types/react":           "^18.3.0",
-    "@types/react-dom":       "^18.3.0",
-    "vitest":                 "^1.6.0",
-    "@vitest/coverage-v8":    "^1.6.0",
-    "jsdom":                  "^24.0.0",
     "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.5.0"
+    "@testing-library/user-event": "^14.5.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
   }
 }

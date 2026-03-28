@@ -16,7 +16,18 @@ export enum LocationConfidence {
   LOW    = 'LOW',
 }
 
+/** GPS coordinates from the Geocoding API — used for precise map pinning. */
+export interface Coords {
+  lat: number;
+  lng: number;
+}
+
 export interface DispatchReport {
+  id?:                string;     // Firestore document ID
+  timestamp?:         number;     // epoch ms
+  imageUrl?:          string;     // Cloud Storage URL
+  coords?:            Coords;     // GPS from Google Maps Geocoding API
+  weatherContext?:    string;     // Weather summary from Google Weather API
   incidentType:       string;
   severity:           Severity;
   location:           string | null;

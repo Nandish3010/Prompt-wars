@@ -1,12 +1,12 @@
-import IncidentForm from '@/components/IncidentForm';
-import type { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title:       'CrisisConnect — Emergency Dispatch Assistant',
-  description: 'Turn chaotic incident reports into structured dispatch data — powered by Google Gemini AI',
-};
+import { useState }        from 'react';
+import IncidentForm        from '@/components/IncidentForm';
+import RecentIncidents     from '@/components/RecentIncidents';
 
 export default function Home() {
+  const [refreshKey, setRefreshKey] = useState(0);
+
   return (
     <>
       {/* Skip-to-content link (WCAG) */}
@@ -24,8 +24,10 @@ export default function Home() {
       <main id="main-content">
         <section aria-labelledby="input-heading">
           <h2 id="input-heading">Describe the Incident</h2>
-          <IncidentForm />
+          <IncidentForm onDispatch={() => setRefreshKey(k => k + 1)} />
         </section>
+
+        <RecentIncidents refreshKey={refreshKey} />
       </main>
 
       <footer>

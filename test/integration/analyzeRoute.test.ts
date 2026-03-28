@@ -52,10 +52,12 @@ describe('POST /api/analyze', () => {
     expect(body.dispatch.severity).toBe('CRITICAL');
   });
 
-  it('returns 200 when Gemini wraps JSON in markdown fences', async () => {
+  it('returns 422 when Gemini wraps JSON in markdown fences (JSON mode enforced)', async () => {
+    // With responseMimeType: 'application/json', Gemini guarantees raw JSON.
+    // Markdown-wrapped responses indicate JSON mode is not active — treat as error.
     mockGemini('```json\n' + VALID_JSON + '\n```');
     const res = await POST(makeRequest({ text: 'crash' }));
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(422);
   });
 
   it('returns 400 when text is empty', async () => {
