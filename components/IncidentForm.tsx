@@ -10,7 +10,7 @@
  */
 'use client';
 
-import { useState, useRef, FormEvent }  from 'react';
+import React, { useState, useRef, FormEvent }  from 'react';
 import { DispatchReport }               from '@/shared/dispatch';
 import { AnalyzeResponse }              from '@/shared/dispatch';
 import { logIncidentAnalyzed }          from '@/lib/analytics';

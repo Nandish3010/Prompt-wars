@@ -9,7 +9,7 @@
  */
 'use client';
 
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface VoiceInputProps {
   /** Called with the transcription text when speech recognition completes. */

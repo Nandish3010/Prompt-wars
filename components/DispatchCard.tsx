@@ -8,7 +8,7 @@
  */
 'use client';
 
-import { forwardRef }                                   from 'react';
+import React, { forwardRef } from 'react';
 import { DispatchReport, Severity, LocationConfidence } from '@/shared/dispatch';
 import LocationMap                                      from './LocationMap';
 

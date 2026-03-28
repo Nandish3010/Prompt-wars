@@ -11,6 +11,7 @@
  */
 'use client';
 
+import React from 'react';
 import { LocationConfidence, Coords } from '@/shared/dispatch';
 
 const MAPS_EMBED_BASE = 'https://maps.google.com/maps';

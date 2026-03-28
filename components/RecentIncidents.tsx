@@ -8,7 +8,7 @@
  */
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DispatchReport, Severity } from '@/shared/dispatch';
 import { getRecentDispatches }      from '@/lib/firestore';
 

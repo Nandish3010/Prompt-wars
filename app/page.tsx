@@ -1,6 +1,6 @@
 'use client';
 
-import { useState }        from 'react';
+import React, { useState } from 'react';
 import IncidentForm        from '@/components/IncidentForm';
 import RecentIncidents     from '@/components/RecentIncidents';
 
